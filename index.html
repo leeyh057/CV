@@ -3,273 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이윤호 | 프로필</title>
+    <title>이윤호 | Executive Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FFFFFF',
+                            text: '#09090B',
+                            sub: '#52525B',
+                            silver: '#E4E4E7',
+                            'silver-dark': '#A1A1AA',
+                            green: '#10B981',
+                            'green-light': '#ECFDF5',
+                            orange: '#F97316',
+                            'orange-light': '#FFF7ED',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'System-UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #111111;
-            --text-muted: #666666;
-            --point-silver: #e5e5e5;
-            --point-silver-dark: #d0d0d0;
-            --point-green: #10b981;
-            --point-green-bg: #ecfdf5;
-            --point-orange: #f97316;
-            --point-orange-bg: #fff7ed;
-            --border-color: #f0f0f0;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 24px 16px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 680px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 40px 32px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .top-decor {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--point-green) 0%, var(--point-orange) 50%, var(--point-silver-dark) 100%);
-        }
-
-        header {
-            margin-bottom: 36px;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: var(--point-green-bg);
-            color: var(--point-green);
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-
-        .badge::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            background-color: var(--point-green);
-            border-radius: 50%;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 8px;
-            color: var(--text-color);
-        }
-
-        .subtitle {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .section {
-            margin-bottom: 32px;
-        }
-
-        .section-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: var(--point-silver);
-        }
-
-        .card {
-            background-color: #fafafa;
-            border: 1px solid var(--point-silver);
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .favorites-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .fav-item {
-            background-color: #fafafa;
-            border: 1px solid var(--point-silver);
-            border-radius: 12px;
-            padding: 16px 12px;
-            text-align: center;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .fav-item:hover {
-            transform: translateY(-2px);
-            border-color: var(--point-orange);
-        }
-
-        .fav-emoji {
-            font-size: 1.8rem;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .fav-text {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .goal-card {
-            background-color: var(--point-orange-bg);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            border-left: 4px solid var(--point-orange);
-            border-radius: 8px 12px 12px 8px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .goal-emoji {
-            font-size: 2rem;
-        }
-
-        .goal-text {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-color);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--point-silver);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 28px 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .favorites-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-            }
-
-            .fav-item {
-                padding: 12px 8px;
-            }
-
-            .fav-emoji {
-                font-size: 1.5rem;
-            }
-
-            .fav-text {
-                font-size: 0.85rem;
-            }
-
-            .goal-text {
-                font-size: 1.05rem;
-            }
+            font-family: 'Pretendard', sans-serif;
+            background-color: #FFFFFF;
+            color: #09090B;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
 
-    <div class="container">
-        <div class="top-decor"></div>
+    <!-- Top Navigation Border Accent -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-brand-green via-brand-silver-dark to-brand-orange"></div>
 
-        <header>
-            <div class="badge">Student & Future Entrepreneur</div>
-            <h1>이윤호</h1>
-            <p class="subtitle">청주대학교 경영학과 4학년</p>
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20 w-full flex-grow">
+        
+        <!-- Header / Profile Section -->
+        <header class="border-b border-brand-silver pb-12 mb-12">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green-light border border-brand-green/30 text-brand-green text-xs font-semibold mb-4">
+                        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+                        Strategic Growth Focus
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-brand-text mb-3">
+                        이윤호
+                    </h1>
+                    <p class="text-lg font-medium text-brand-sub">
+                        청주대학교 경영학과 4학년 <span class="text-brand-silver-dark mx-2">|</span> Academic Finalist
+                    </p>
+                </div>
+                
+                <!-- Geometric Avatar Decorative Frame -->
+                <div class="relative w-24 h-24 md:w-28 md:w-28 flex-shrink-0">
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-silver via-white to-brand-silver border border-brand-silver shadow-sm flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-xl bg-brand-text text-white flex items-center justify-center font-bold text-xl shadow-md">
+                            YH
+                        </div>
+                    </div>
+                    <div class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-brand-orange border-2 border-white"></div>
+                    <div class="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-brand-green border-2 border-white"></div>
+                </div>
+            </div>
         </header>
 
-        <main>
-            <section class="section">
-                <div class="section-title"><span>01</span> 관심 분야</div>
-                <div class="card">
-                    <p style="font-size: 1.1rem; font-weight: 600;">🚀 창업 (Entrepreneurship)</p>
+        <!-- Body Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            
+            <!-- Left Column: Core Domain & Target -->
+            <div class="md:col-span-1 space-y-6">
+                <!-- Interest Domain -->
+                <div class="p-6 rounded-2xl border border-brand-silver bg-white hover:border-brand-green transition-colors duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-brand-green-light rounded-bl-full -mr-4 -mt-4 transition-all group-hover:scale-110"></div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-green block mb-2">Core Interest</span>
+                    <h2 class="text-xl font-bold text-brand-text mb-2">창업 (Venture)</h2>
+                    <p class="text-sm text-brand-sub leading-relaxed">
+                        신규 비즈니스 모델 발굴 및 가치 창출 구조 구축 연구
+                    </p>
                 </div>
-            </section>
 
-            <section class="section">
-                <div class="section-title"><span>02</span> 좋아하는 것</div>
-                <div class="favorites-grid">
-                    <div class="fav-item">
-                        <span class="fav-emoji">🍕</span>
-                        <span class="fav-text">먹기</span>
+                <!-- Strategic Goal -->
+                <div class="p-6 rounded-2xl border border-brand-silver bg-white hover:border-brand-orange transition-colors duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-brand-orange-light rounded-bl-full -mr-4 -mt-4 transition-all group-hover:scale-110"></div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-orange block mb-2">Primary Objective</span>
+                    <h2 class="text-xl font-bold text-brand-text mb-2">돈 많이 벌기</h2>
+                    <p class="text-sm text-brand-sub leading-relaxed">
+                        자본 효율성 극대화를 통한 자산 증식 및 재무적 극대화 달성
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Energy Management Mechanisms (Favorites) -->
+            <div class="md:col-span-2 p-6 md:p-8 rounded-2xl border border-brand-silver bg-white">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-brand-silver">
+                    <h2 class="text-xl font-bold text-brand-text flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+                        에너지 관리 메커니즘 (선호 항목 3선)
+                    </h2>
+                    <span class="text-xs font-mono text-brand-sub bg-gray-100 px-2.5 py-1 rounded-md">3 Pillars</span>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Item 1 -->
+                    <div class="p-4 rounded-xl border border-brand-silver hover:bg-gray-50/80 transition-colors flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-green-light text-brand-green font-extrabold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                            01
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-text text-base mb-1">먹기 (Nutritional Supply)</h3>
+                            <p class="text-sm text-brand-sub leading-relaxed">
+                                최적의 생체 에너지 공급 및 영양 섭취를 통한 신체적 리소스 충전
+                            </p>
+                        </div>
                     </div>
-                    <div class="fav-item">
-                        <span class="fav-emoji">🛌</span>
-                        <span class="fav-text">자기</span>
+
+                    <!-- Item 2 -->
+                    <div class="p-4 rounded-xl border border-brand-silver hover:bg-gray-50/80 transition-colors flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-gray-100 text-brand-text font-extrabold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                            02
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-text text-base mb-1">자기 (Rest & Recovery)</h3>
+                            <p class="text-sm text-brand-sub leading-relaxed">
+                                수면을 통한 신체적·정신적 리커버리 및 컨디션 유지 프로세스
+                            </p>
+                        </div>
                     </div>
-                    <div class="fav-item">
-                        <span class="fav-emoji">🎉</span>
-                        <span class="fav-text">놀기</span>
+
+                    <!-- Item 3 -->
+                    <div class="p-4 rounded-xl border border-brand-silver hover:bg-gray-50/80 transition-colors flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-orange-light text-brand-orange font-extrabold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                            03
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-text text-base mb-1">놀기 (Stress Mitigation)</h3>
+                            <p class="text-sm text-brand-sub leading-relaxed">
+                                스트레스 완화 및 인지적 리프레시를 위한 리크리에이션 활동
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="section">
-                <div class="section-title"><span>03</span> 목표</div>
-                <div class="goal-card">
-                    <span class="goal-emoji">💰</span>
-                    <span class="goal-text">돈 많이 벌기</span>
-                </div>
-            </section>
-        </main>
+        </div>
 
-        <footer>
-            <p>© 2026 Lee Yunho. All rights reserved.</p>
-        </footer>
-    </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-brand-silver py-6 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center text-xs text-brand-sub flex flex-col md:flex-row items-center justify-between gap-2">
+            <p>© 이윤호. All rights reserved.</p>
+            <p class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span> White Minimalist Architecture
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>
