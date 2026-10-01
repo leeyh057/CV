@@ -1,460 +1,275 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이윤호 | PORTFOLIO & CV</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Inter & Noto Sans KR) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            900: '#0B132B',
-                            800: '#1C2541',
-                            700: '#3A506B',
-                        },
-                        accent: {
-                            gold: '#D4AF37',
-                            amber: '#F59E0B',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <title>이윤호 | 프로필</title>
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --text-muted: #666666;
+            --point-silver: #e5e5e5;
+            --point-silver-dark: #d0d0d0;
+            --point-green: #10b981;
+            --point-green-bg: #ecfdf5;
+            --point-orange: #f97316;
+            --point-orange-bg: #fff7ed;
+            --border-color: #f0f0f0;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
-            background-color: #F8F9FA;
-            color: #1A1A1A;
-            word-break: keep-all;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 24px 16px;
         }
 
-        /* Hero Minimal Overlay */
-        .navy-hero {
-            background-color: #0B132B;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(28, 37, 65, 0.8) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(58, 80, 107, 0.3) 0px, transparent 50%);
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Clean Minimal Card Hover Effects */
-        .wix-card {
-            background: #FFFFFF;
-            border: 1px solid #E5E7EB;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .wix-card:hover {
-            transform: translateY(-4px);
-            border-color: #1C2541;
-            box-shadow: 0 12px 30px -10px rgba(11, 19, 43, 0.08);
+        .top-decor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--point-green) 0%, var(--point-orange) 50%, var(--point-silver-dark) 100%);
         }
 
-        /* Subtle Fade In Animation */
-        .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        header {
+            margin-bottom: 36px;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--point-green-bg);
+            color: var(--point-green);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: var(--point-green);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--point-silver);
+        }
+
+        .card {
+            background-color: #fafafa;
+            border: 1px solid var(--point-silver);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .fav-item {
+            background-color: #fafafa;
+            border: 1px solid var(--point-silver);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .fav-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--point-orange);
+        }
+
+        .fav-emoji {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .fav-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .goal-card {
+            background-color: var(--point-orange-bg);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-left: 4px solid var(--point-orange);
+            border-radius: 8px 12px 12px 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .goal-emoji {
+            font-size: 2rem;
+        }
+
+        .goal-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--point-silver);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 28px 20px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F1F1F1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0B132B;
-            border-radius: 3px;
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .favorites-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .fav-item {
+                padding: 12px 8px;
+            }
+
+            .fav-emoji {
+                font-size: 1.5rem;
+            }
+
+            .fav-text {
+                font-size: 0.85rem;
+            }
+
+            .goal-text {
+                font-size: 1.05rem;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-navy-800 selection:text-amber-300">
+<body>
 
-    <!-- Top Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur-md border-b border-white/10 text-white px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="font-extrabold text-lg tracking-wider hover:text-amber-400 transition-colors">
-                LEE YUN HO <span class="text-xs text-slate-400 font-normal ml-1">| PORTFOLIO</span>
-            </a>
-            <div class="flex items-center space-x-6 text-xs sm:text-sm font-medium">
-                <a href="#about" class="text-slate-300 hover:text-white transition-colors">소개</a>
-                <a href="#vision" class="text-slate-300 hover:text-white transition-colors">비전</a>
-                <a href="#drivers" class="text-slate-300 hover:text-white transition-colors">핵심 동력</a>
-                <button onclick="copyContactInfo()" class="px-3 py-1.5 rounded border border-white/20 hover:bg-white hover:text-navy-900 transition-all text-xs font-semibold">
-                    <i class="fa-regular fa-paper-plane mr-1.5"></i>연락처 복사
-                </button>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+        <div class="top-decor"></div>
 
-    <!-- 1. Deep Navy Hero Section -->
-    <header id="about" class="navy-hero text-white py-20 px-6 sm:px-12 relative overflow-hidden">
-        <!-- Background Grid Decoration -->
-        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <header>
+            <div class="badge">Student & Future Entrepreneur</div>
+            <h1>이윤호</h1>
+            <p class="subtitle">청주대학교 경영학과 4학년</p>
+        </header>
 
-        <div class="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Info Block -->
-            <div class="lg:col-span-8 space-y-6 fade-in-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-400 text-xs font-semibold tracking-wide border border-white/10">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    청주대학교 경영학과 4학년
+        <main>
+            <section class="section">
+                <div class="section-title"><span>01</span> 관심 분야</div>
+                <div class="card">
+                    <p style="font-size: 1.1rem; font-weight: 600;">🚀 창업 (Entrepreneurship)</p>
                 </div>
+            </section>
 
-                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                    이 윤 호 <br>
-                    <span class="text-2xl sm:text-4xl font-light text-slate-300 tracking-normal">LEE YUN HO</span>
-                </h1>
-
-                <p class="text-base sm:text-xl text-slate-300 font-light leading-relaxed max-w-2xl">
-                    경영학적 분석 프레임워크와 창의적 사업 구상을 바탕으로, <br class="hidden sm:inline">
-                    <strong class="text-amber-400 font-semibold">고부가가치 비즈니스 창출</strong> 및 <strong class="text-white font-semibold">지속가능한 자산 극대화</strong>를 지향하는 예비 창업가입니다.
-                </p>
-
-                <!-- Quick Metric Badges -->
-                <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
-                    <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                        <div class="text-slate-400 uppercase tracking-wider text-[10px] mb-1">소속 기관</div>
-                        <div class="font-bold text-slate-100 text-sm">청주대학교</div>
+            <section class="section">
+                <div class="section-title"><span>02</span> 좋아하는 것</div>
+                <div class="favorites-grid">
+                    <div class="fav-item">
+                        <span class="fav-emoji">🍕</span>
+                        <span class="fav-text">먹기</span>
                     </div>
-                    <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                        <div class="text-slate-400 uppercase tracking-wider text-[10px] mb-1">전공 과정</div>
-                        <div class="font-bold text-slate-100 text-sm">경영학과 (4학년)</div>
+                    <div class="fav-item">
+                        <span class="fav-emoji">🛌</span>
+                        <span class="fav-text">자기</span>
                     </div>
-                    <div class="p-4 rounded-lg bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
-                        <div class="text-slate-400 uppercase tracking-wider text-[10px] mb-1">핵심 타겟 도메인</div>
-                        <div class="font-bold text-amber-400 text-sm">신규 창업 (Venture Creation)</div>
+                    <div class="fav-item">
+                        <span class="fav-emoji">🎉</span>
+                        <span class="fav-text">놀기</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Right Geometric Avatar Card (Wix Minimalist Aesthetic) -->
-            <div class="lg:col-span-4 flex justify-center lg:justify-end fade-in-up">
-                <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl bg-gradient-to-tr from-navy-800 to-slate-800 border border-white/20 p-6 flex flex-col justify-between shadow-2xl relative group">
-                    <div class="flex justify-between items-start">
-                        <span class="text-xs font-mono text-slate-400">STATUS : ACTIVE</span>
-                        <div class="w-8 h-8 rounded-full bg-amber-400/20 text-amber-400 flex items-center justify-center text-sm">
-                            <i class="fa-solid fa-compass"></i>
-                        </div>
-                    </div>
-
-                    <!-- Geometric Monogram SVG Vector Avatar -->
-                    <div class="my-auto flex flex-col items-center justify-center space-y-4">
-                        <div class="w-24 h-24 rounded-full bg-navy-900 border-2 border-amber-400/80 flex items-center justify-center text-4xl shadow-inner group-hover:scale-105 transition-transform duration-300">
-                            <svg class="w-12 h-12 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                            </svg>
-                        </div>
-                        <div class="text-center">
-                            <span class="block text-sm font-bold text-white tracking-widest uppercase">LEE YUN HO</span>
-                            <span class="text-[11px] text-slate-400">Business Strategist</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-white/10 flex justify-between text-[11px] text-slate-400">
-                        <span>ENTREPRENEUR</span>
-                        <span>CHEONGJU UNIV</span>
-                    </div>
+            <section class="section">
+                <div class="section-title"><span>03</span> 목표</div>
+                <div class="goal-card">
+                    <span class="goal-emoji">💰</span>
+                    <span class="goal-text">돈 많이 벌기</span>
                 </div>
-            </div>
+            </section>
+        </main>
 
-        </div>
-    </header>
-
-    <!-- 2. Clean Light Content Main Section -->
-    <main class="bg-slate-50 flex-grow py-16 px-6 sm:px-12">
-        <div class="max-w-6xl mx-auto space-y-16">
-
-            <!-- Filter Tabs for Wix Grid Experience -->
-            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
-                <div>
-                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">OVERVIEW & PROFILE</h2>
-                    <p class="text-2xl font-bold text-slate-900">핵심 포트폴리오 카드</p>
-                </div>
-                
-                <div class="flex gap-2 text-xs font-semibold">
-                    <button onclick="filterCards('all')" id="btn-all" class="filter-btn px-4 py-2 rounded-md bg-navy-900 text-white transition-all">전체보기</button>
-                    <button onclick="filterCards('vision')" id="btn-vision" class="filter-btn px-4 py-2 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-slate-400 transition-all">목표 & 관심</button>
-                    <button onclick="filterCards('driver')" id="btn-driver" class="filter-btn px-4 py-2 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-slate-400 transition-all">3대 동력</button>
-                </div>
-            </div>
-
-            <!-- Grid Layout (Wix Modern 2x2/3x3 Grid Inspiration) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- CARD 1: 최종 정량 목표 (Ultimate Goal) -->
-                <div class="card-item vision wix-card rounded-xl p-8 lg:col-span-2 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-bl-full pointer-events-none"></div>
-                    
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-900 text-xs font-bold rounded-md uppercase tracking-wider">
-                                Primary Vision Objective
-                            </span>
-                            <span class="text-xs font-mono text-slate-400">GOAL #01</span>
-                        </div>
-
-                        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                            "돈 많이 벌기"
-                        </h3>
-
-                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                            사업구조 고도화 및 신규 수익 모델 개발을 통한 <strong class="text-slate-900 font-semibold">지속가능한 자본 증식</strong>과 <strong class="text-slate-900 font-semibold">압도적 부가가치 창출</strong>을 최종 과제로 설정합니다. 단순한 재무적 성과를 넘어 완전한 경제적 자립과 자산 극대화를 실현합니다.
-                        </p>
-                    </div>
-
-                    <div class="pt-6 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-500">
-                        <span class="flex items-center gap-2">
-                            <i class="fa-solid fa-chart-line text-amber-500"></i>
-                            자본 축적 및 리스크 관리
-                        </span>
-                        <span class="text-navy-900 font-bold">수익성 극대화 지향</span>
-                    </div>
-                </div>
-
-                <!-- CARD 2: 학술 & 소속 (Academic Background) -->
-                <div class="card-item vision wix-card rounded-xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md uppercase tracking-wider">
-                                Academic Profile
-                            </span>
-                            <span class="text-xs font-mono text-slate-400">PRO #02</span>
-                        </div>
-
-                        <div class="w-12 h-12 rounded-lg bg-navy-900 text-amber-400 flex items-center justify-center text-xl mb-6 shadow-sm">
-                            <i class="fa-solid fa-university"></i>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">청주대학교 경영학과</h3>
-                        <p class="text-xs text-amber-600 font-semibold mb-4">4학년 (학사 과정 이수 중)</p>
-
-                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
-                            경영학 종합 프레임워크 이수를 통해 마케팅, 재무 관리, 조직 전략 및 시장 분석 등 창업에 필요한 다각적 학술 자산을 구축하고 있습니다.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 flex justify-between">
-                        <span>전공: 경영학</span>
-                        <span>최종 학년</span>
-                    </div>
-                </div>
-
-                <!-- CARD 3: 핵심 관심 분야 (Core Focus - 창업) -->
-                <div class="card-item vision wix-card rounded-xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md uppercase tracking-wider">
-                                Focus Domain
-                            </span>
-                            <span class="text-xs font-mono text-slate-400">CORE #03</span>
-                        </div>
-
-                        <div class="w-12 h-12 rounded-lg bg-navy-900 text-white flex items-center justify-center text-xl mb-6 shadow-sm">
-                            <i class="fa-solid fa-rocket"></i>
-                        </div>
-
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">신규 사업 창업</h3>
-                        <p class="text-xs text-slate-500 font-medium mb-4">Entrepreneurship & Innovation</p>
-
-                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
-                            시장 불확실성을 최소화하는 비즈니스 모델 발굴, 타겟 고객 기회 포착, 초기 실행 리소스 최적화 전략을 모색합니다.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 flex justify-between">
-                        <span>사업 모델 기획</span>
-                        <span>기회 포착</span>
-                    </div>
-                </div>
-
-                <!-- CARD 4: 핵심 동력 1 - 먹기 (Gourmet Intake) -->
-                <div class="card-item driver wix-card rounded-xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-bold rounded-md uppercase tracking-wider border border-emerald-200">
-                                Driver 01
-                            </span>
-                            <i class="fa-solid fa-utensils text-slate-400 text-sm"></i>
-                        </div>
-
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">미식 탐구 (먹기)</h3>
-                        <p class="text-xs font-medium text-emerald-600 mb-4">신체 에너지 및 인지 능력 수급</p>
-
-                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
-                            고품질 영양 섭취를 통해 최고 수준의 신체 컨디션과 업무 수행 리듬을 유지하는 생체 에너지 충전 프로세스입니다.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-400 font-mono">
-                        ENERGY INTAKE MECHANISM
-                    </div>
-                </div>
-
-                <!-- CARD 5: 핵심 동력 2 - 자기 (High-Efficiency Sleep) -->
-                <div class="card-item driver wix-card rounded-xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="px-3 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded-md uppercase tracking-wider border border-blue-200">
-                                Driver 02
-                            </span>
-                            <i class="fa-solid fa-moon text-slate-400 text-sm"></i>
-                        </div>
-
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">고효율 휴식 (자기)</h3>
-                        <p class="text-xs font-medium text-blue-600 mb-4">뇌 인지 기능 리커버리</p>
-
-                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
-                            충분한 수면과 휴식을 통해 피로도를 체계적으로 관리하며, 복잡한 의사결정을 위한 명확한 인지력을 회복합니다.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-400 font-mono">
-                        RECOVERY & OPTIMIZATION
-                    </div>
-                </div>
-
-                <!-- CARD 6: 핵심 동력 3 - 놀기 (Recreation & Leisure) -->
-                <div id="drivers" class="card-item driver wix-card rounded-xl p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="px-3 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-md uppercase tracking-wider border border-indigo-200">
-                                Driver 03
-                            </span>
-                            <i class="fa-solid fa-gamepad text-slate-400 text-sm"></i>
-                        </div>
-
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">레저 & 리프레시 (놀기)</h3>
-                        <p class="text-xs font-medium text-indigo-600 mb-4">창의적 사고 환기 및 네트워크</p>
-
-                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
-                            다양한 문화 및 레저 경험을 통해 고정관념을 깨고, 광범위한 트렌드 감지 능력을 유지하며 아이디어를 구상합니다.
-                        </p>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-400 font-mono">
-                        CREATIVE REFRESH & NETWORK
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </main>
-
-    <!-- Toast Notification Box (Replaces Browser Alert) -->
-    <div id="toast" class="fixed bottom-8 right-8 z-50 bg-navy-900 text-white px-5 py-3 rounded-lg shadow-xl text-xs font-medium border border-white/20 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
-        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
-        <span id="toast-message">메시지 내용</span>
+        <footer>
+            <p>© 2026 Lee Yunho. All rights reserved.</p>
+        </footer>
     </div>
 
-    <!-- 3. Minimalist Footer -->
-    <footer class="bg-navy-900 text-slate-400 py-12 px-6 border-t border-white/10 text-xs">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div class="text-center sm:text-left space-y-1">
-                <p class="font-bold text-slate-200 text-sm">이윤호 | PORTFOLIO</p>
-                <p class="text-slate-400">청주대학교 경영학과 4학년 · 예비 창업가</p>
-            </div>
-
-            <div class="flex items-center space-x-4">
-                <a href="#about" class="hover:text-white transition-colors">상단으로 이동</a>
-                <span class="text-slate-600">•</span>
-                <button onclick="copyContactInfo()" class="hover:text-white transition-colors">연락처 복사</button>
-            </div>
-
-            <p class="text-slate-500">© 2026 LEE YUN HO. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Interactive Scripts -->
-    <script>
-        // Copy Contact Information with Toast UI
-        function copyContactInfo() {
-            const contactText = "이윤호 | 청주대학교 경영학과 4학년 | 예비 창업가 (Contact: lee.yoonho@example.com)";
-            
-            // Clipboard fallback logic using execCommand
-            const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = contactText;
-            document.body.appendChild(tempTextArea);
-            tempTextArea.select();
-            
-            try {
-                document.execCommand('copy');
-                showToast("프로필 연락처 정보가 클립보드에 복사되었습니다.");
-            } catch (err) {
-                showToast("복사 중 오류가 발생했습니다.");
-            }
-            document.body.removeChild(tempTextArea);
-        }
-
-        // Custom Toast Display Function
-        function showToast(message) {
-            const toast = document.getElementById("toast");
-            const toastMsg = document.getElementById("toast-message");
-            toastMsg.innerText = message;
-            
-            toast.classList.remove("translate-y-20", "opacity-0");
-            toast.classList.add("translate-y-0", "opacity-100");
-
-            setTimeout(() => {
-                toast.classList.remove("translate-y-0", "opacity-100");
-                toast.classList.add("translate-y-20", "opacity-0");
-            }, 3000);
-        }
-
-        // Filter Cards Logic for Wix-style interactivity
-        function filterCards(category) {
-            const cards = document.querySelectorAll('.card-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Button state styling
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-navy-900', 'text-white');
-                btn.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-600');
-            });
-
-            const activeBtn = document.getElementById(`btn-${category}`);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600');
-                activeBtn.classList.add('bg-navy-900', 'text-white');
-            }
-
-            // Card show/hide logic
-            cards.forEach(card => {
-                if (category === 'all') {
-                    card.classList.remove('hidden');
-                } else {
-                    if (card.classList.contains(category)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }
-            });
-        }
-    </script>
 </body>
 </html>
