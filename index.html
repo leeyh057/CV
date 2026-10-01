@@ -1,227 +1,460 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이윤호 - 경영전략 및 자산극대화 포트폴리오</title>
+    <title>이윤호 | PORTFOLIO & CV</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons CDN -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font (Noto Sans KR & Inter) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+KR:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Inter & Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#3A506B',
+                        },
+                        accent: {
+                            gold: '#D4AF37',
+                            amber: '#F59E0B',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Noto Sans KR', 'Inter', sans-serif;
-            background-color: #0F172A;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #F8F9FA;
+            color: #1A1A1A;
             word-break: keep-all;
         }
 
-        /* Glassmorphism & High-contrast Card Effects */
-        .glass-header {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.98) 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        /* Hero Minimal Overlay */
+        .navy-hero {
+            background-color: #0B132B;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(28, 37, 65, 0.8) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(58, 80, 107, 0.3) 0px, transparent 50%);
         }
 
-        .dark-card {
-            background-color: #1E293B;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* Clean Minimal Card Hover Effects */
+        .wix-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .wix-card:hover {
+            transform: translateY(-4px);
+            border-color: #1C2541;
+            box-shadow: 0 12px 30px -10px rgba(11, 19, 43, 0.08);
         }
 
-        .gold-border-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        /* Subtle Fade In Animation */
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #D97706 0%, #B45309 50%, #78350F 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        .navy-accent-bg {
-            background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+        ::-webkit-scrollbar-track {
+            background: #F1F1F1;
         }
-
-        /* Subtle Glow Shapes */
-        .ambient-glow-1 {
-            position: absolute;
-            top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(30, 58, 138, 0.35) 0%, rgba(15, 23, 42, 0) 70%);
-            pointer-events: none;
+        ::-webkit-scrollbar-thumb {
+            background: #0B132B;
+            border-radius: 3px;
         }
     </style>
 </head>
-<body class="min-h-screen text-slate-800 flex flex-col justify-between selection:bg-slate-700 selection:text-amber-200">
+<body class="min-h-screen flex flex-col justify-between selection:bg-navy-800 selection:text-amber-300">
 
-    <!-- 1. 남색 바탕의 상단 소개 영역 (Top Dark Navy Executive Header) -->
-    <header class="relative navy-accent-bg text-white pt-16 pb-24 px-4 sm:px-6 lg:px-8 border-b border-slate-800 overflow-hidden">
-        <div class="ambient-glow-1"></div>
-        
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- 상단 뱃지 요약 -->
-            <div class="flex flex-wrap justify-center sm:justify-start gap-2 mb-6">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-800/90 text-slate-300 text-xs font-medium border border-slate-700/60">
-                    <i class="fa-solid fa-graduation-cap text-amber-500"></i>
+    <!-- Top Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur-md border-b border-white/10 text-white px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-extrabold text-lg tracking-wider hover:text-amber-400 transition-colors">
+                LEE YUN HO <span class="text-xs text-slate-400 font-normal ml-1">| PORTFOLIO</span>
+            </a>
+            <div class="flex items-center space-x-6 text-xs sm:text-sm font-medium">
+                <a href="#about" class="text-slate-300 hover:text-white transition-colors">소개</a>
+                <a href="#vision" class="text-slate-300 hover:text-white transition-colors">비전</a>
+                <a href="#drivers" class="text-slate-300 hover:text-white transition-colors">핵심 동력</a>
+                <button onclick="copyContactInfo()" class="px-3 py-1.5 rounded border border-white/20 hover:bg-white hover:text-navy-900 transition-all text-xs font-semibold">
+                    <i class="fa-regular fa-paper-plane mr-1.5"></i>연락처 복사
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Deep Navy Hero Section -->
+    <header id="about" class="navy-hero text-white py-20 px-6 sm:px-12 relative overflow-hidden">
+        <!-- Background Grid Decoration -->
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info Block -->
+            <div class="lg:col-span-8 space-y-6 fade-in-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-400 text-xs font-semibold tracking-wide border border-white/10">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     청주대학교 경영학과 4학년
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-950/40 text-amber-400 text-xs font-semibold border border-amber-800/50">
-                    <i class="fa-solid fa-chart-line"></i>
-                    창업 지향 비즈니스 리더십
-                </span>
-            </div>
+                </div>
 
-            <!-- 핵심 성명 및 타이틀 -->
-            <div class="text-center sm:text-left border-b border-slate-800 pb-8 mb-8">
-                <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">
-                    이 윤 호 <span class="text-lg sm:text-2xl font-light text-slate-400 ml-2">LEE YUN HO</span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    이 윤 호 <br>
+                    <span class="text-2xl sm:text-4xl font-light text-slate-300 tracking-normal">LEE YUN HO</span>
                 </h1>
-                <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
-                    자산극대화와 지속가능한 사업모델 창출을 목표로 하는 <span class="text-amber-400 font-semibold">예비 창업가</span>
+
+                <p class="text-base sm:text-xl text-slate-300 font-light leading-relaxed max-w-2xl">
+                    경영학적 분석 프레임워크와 창의적 사업 구상을 바탕으로, <br class="hidden sm:inline">
+                    <strong class="text-amber-400 font-semibold">고부가가치 비즈니스 창출</strong> 및 <strong class="text-white font-semibold">지속가능한 자산 극대화</strong>를 지향하는 예비 창업가입니다.
                 </p>
+
+                <!-- Quick Metric Badges -->
+                <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
+                    <div class="p-4 rounded-lg bg-white/5 border border-white/10">
+                        <div class="text-slate-400 uppercase tracking-wider text-[10px] mb-1">소속 기관</div>
+                        <div class="font-bold text-slate-100 text-sm">청주대학교</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white/5 border border-white/10">
+                        <div class="text-slate-400 uppercase tracking-wider text-[10px] mb-1">전공 과정</div>
+                        <div class="font-bold text-slate-100 text-sm">경영학과 (4학년)</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                        <div class="text-slate-400 uppercase tracking-wider text-[10px] mb-1">핵심 타겟 도메인</div>
+                        <div class="font-bold text-amber-400 text-sm">신규 창업 (Venture Creation)</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- 프로필 브리핑 요약표 -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
-                <div class="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <span class="block text-[11px] font-semibold text-slate-400 tracking-wider uppercase mb-1">성명</span>
-                    <span class="text-sm font-bold text-slate-200">이윤호</span>
-                </div>
-                <div class="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <span class="block text-[11px] font-semibold text-slate-400 tracking-wider uppercase mb-1">소속 기관</span>
-                    <span class="text-sm font-bold text-slate-200">청주대학교</span>
-                </div>
-                <div class="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <span class="block text-[11px] font-semibold text-slate-400 tracking-wider uppercase mb-1">전공 과정</span>
-                    <span class="text-sm font-bold text-slate-200">경영학과 (4학년)</span>
-                </div>
-                <div class="p-3.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <span class="block text-[11px] font-semibold text-slate-400 tracking-wider uppercase mb-1">핵심 도메인</span>
-                    <span class="text-sm font-bold text-amber-400">창업 (Entrepreneurship)</span>
+            <!-- Right Geometric Avatar Card (Wix Minimalist Aesthetic) -->
+            <div class="lg:col-span-4 flex justify-center lg:justify-end fade-in-up">
+                <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl bg-gradient-to-tr from-navy-800 to-slate-800 border border-white/20 p-6 flex flex-col justify-between shadow-2xl relative group">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-mono text-slate-400">STATUS : ACTIVE</span>
+                        <div class="w-8 h-8 rounded-full bg-amber-400/20 text-amber-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                    </div>
+
+                    <!-- Geometric Monogram SVG Vector Avatar -->
+                    <div class="my-auto flex flex-col items-center justify-center space-y-4">
+                        <div class="w-24 h-24 rounded-full bg-navy-900 border-2 border-amber-400/80 flex items-center justify-center text-4xl shadow-inner group-hover:scale-105 transition-transform duration-300">
+                            <svg class="w-12 h-12 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-sm font-bold text-white tracking-widest uppercase">LEE YUN HO</span>
+                            <span class="text-[11px] text-slate-400">Business Strategist</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 flex justify-between text-[11px] text-slate-400">
+                        <span>ENTREPRENEUR</span>
+                        <span>CHEONGJU UNIV</span>
+                    </div>
                 </div>
             </div>
+
         </div>
     </header>
 
-    <!-- 2. 밝은 바탕의 본문 영역 (Main Content Section) -->
-    <main class="bg-slate-50 flex-grow py-12 px-4 sm:px-6 lg:px-8 relative z-20">
-        <div class="max-w-4xl mx-auto space-y-8">
+    <!-- 2. Clean Light Content Main Section -->
+    <main class="bg-slate-50 flex-grow py-16 px-6 sm:px-12">
+        <div class="max-w-6xl mx-auto space-y-16">
 
-            <!-- 카드 1: 최종 목표 (Ultimate Objective) -->
-            <section class="gold-border-card rounded-xl p-6 sm:p-8">
-                <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded bg-slate-900 text-amber-400 flex items-center justify-center text-sm font-bold shadow-sm">
-                            <i class="fa-solid fa-bullseye"></i>
+            <!-- Filter Tabs for Wix Grid Experience -->
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">OVERVIEW & PROFILE</h2>
+                    <p class="text-2xl font-bold text-slate-900">핵심 포트폴리오 카드</p>
+                </div>
+                
+                <div class="flex gap-2 text-xs font-semibold">
+                    <button onclick="filterCards('all')" id="btn-all" class="filter-btn px-4 py-2 rounded-md bg-navy-900 text-white transition-all">전체보기</button>
+                    <button onclick="filterCards('vision')" id="btn-vision" class="filter-btn px-4 py-2 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-slate-400 transition-all">목표 & 관심</button>
+                    <button onclick="filterCards('driver')" id="btn-driver" class="filter-btn px-4 py-2 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-slate-400 transition-all">3대 동력</button>
+                </div>
+            </div>
+
+            <!-- Grid Layout (Wix Modern 2x2/3x3 Grid Inspiration) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- CARD 1: 최종 정량 목표 (Ultimate Goal) -->
+                <div class="card-item vision wix-card rounded-xl p-8 lg:col-span-2 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-bl-full pointer-events-none"></div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-900 text-xs font-bold rounded-md uppercase tracking-wider">
+                                Primary Vision Objective
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">GOAL #01</span>
                         </div>
-                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">최종 전략 목표 (Ultimate Strategic Goal)</h2>
-                    </div>
-                    <span class="text-xs font-bold px-2.5 py-1 bg-amber-100 text-amber-900 rounded border border-amber-300">비전 선언</span>
-                </div>
 
-                <div class="bg-slate-900 rounded-lg p-6 sm:p-8 text-center text-white border border-slate-800 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-amber-500/10 pointer-events-none"></div>
-                    <span class="block text-xs font-medium text-slate-400 tracking-widest uppercase mb-2">Primary Objective</span>
-                    <h3 class="text-2xl sm:text-4xl font-black tracking-tight text-amber-400 mb-3">
-                        "돈 많이 벌기"
-                    </h3>
-                    <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
-                        사업구조 고도화 및 고부가가치 창출을 통한 <strong class="text-white font-semibold">압도적 자본 축적</strong>과 <strong class="text-white font-semibold">완전한 경제적 자립</strong> 달성을 최우선 과제로 설정함.
-                    </p>
-                </div>
-            </section>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                            "돈 많이 벌기"
+                        </h3>
 
-            <!-- 카드 2: 핵심 전문 분야 (Primary Focus Area) -->
-            <section class="gold-border-card rounded-xl p-6 sm:p-8">
-                <div class="flex items-center gap-3 border-b border-slate-200 pb-4 mb-6">
-                    <div class="w-8 h-8 rounded bg-slate-900 text-slate-100 flex items-center justify-center text-sm font-bold shadow-sm">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">핵심 관심 영역 (Core Interest Domain)</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="p-5 rounded-lg bg-slate-100 border border-slate-200 text-left">
-                        <div class="text-slate-800 text-xl mb-2"><i class="fa-solid fa-chart-pie"></i></div>
-                        <h3 class="text-sm font-bold text-slate-900 mb-1">창업 (Entrepreneurship)</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">시장 기회 포착 및 신규 사업 모델 발굴을 통한 가치 창출 체계화</p>
-                    </div>
-                    <div class="p-5 rounded-lg bg-slate-100 border border-slate-200 text-left">
-                        <div class="text-slate-800 text-xl mb-2"><i class="fa-solid fa-chess-knight"></i></div>
-                        <h3 class="text-sm font-bold text-slate-900 mb-1">경영전략 수립</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">경영학적 이론 기반 수익성 극대화 및 기회비용 최소화 전략 분석</p>
-                    </div>
-                    <div class="p-5 rounded-lg bg-slate-100 border border-slate-200 text-left">
-                        <div class="text-slate-800 text-xl mb-2"><i class="fa-solid fa-coins"></i></div>
-                        <h3 class="text-sm font-bold text-slate-900 mb-1">자산 증식 구조화</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">지속가능한 현금흐름 확보 및 효율적 자본 배분을 위한 실행 방안 모색</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 카드 3: 핵심 생산성 동인 (Key Operational Drivers - 3 Favorites) -->
-            <section class="gold-border-card rounded-xl p-6 sm:p-8">
-                <div class="flex items-center gap-3 border-b border-slate-200 pb-4 mb-6">
-                    <div class="w-8 h-8 rounded bg-slate-900 text-slate-100 flex items-center justify-center text-sm font-bold shadow-sm">
-                        <i class="fa-solid fa-sliders"></i>
-                    </div>
-                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">핵심 리프레시 및 에너지 동인 (Core Operational Drivers)</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    <!-- 동인 1: 먹기 -->
-                    <div class="bg-white p-5 rounded-lg border border-slate-200 hover:border-slate-400 transition-colors shadow-sm">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Driver 01</span>
-                            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">에너지 충전</span>
-                        </div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1">먹기 (Nutrition Intake)</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            영양 섭취 기반의 물리적 신체 에너지 재충전 및 최적의 인지 수행 능력 유지 메커니즘.
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                            사업구조 고도화 및 신규 수익 모델 개발을 통한 <strong class="text-slate-900 font-semibold">지속가능한 자본 증식</strong>과 <strong class="text-slate-900 font-semibold">압도적 부가가치 창출</strong>을 최종 과제로 설정합니다. 단순한 재무적 성과를 넘어 완전한 경제적 자립과 자산 극대화를 실현합니다.
                         </p>
                     </div>
 
-                    <!-- 동인 2: 자기 -->
-                    <div class="bg-white p-5 rounded-lg border border-slate-200 hover:border-slate-400 transition-colors shadow-sm">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Driver 02</span>
-                            <span class="text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">리커버리</span>
+                    <div class="pt-6 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-500">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-amber-500"></i>
+                            자본 축적 및 리스크 관리
+                        </span>
+                        <span class="text-navy-900 font-bold">수익성 극대화 지향</span>
+                    </div>
+                </div>
+
+                <!-- CARD 2: 학술 & 소속 (Academic Background) -->
+                <div class="card-item vision wix-card rounded-xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md uppercase tracking-wider">
+                                Academic Profile
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">PRO #02</span>
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1">자기 (High-Efficiency Rest)</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            고효율 수면 리커버리를 통한 피로 회복 및 고강도 업무 몰입을 위한 컨디셔닝.
+
+                        <div class="w-12 h-12 rounded-lg bg-navy-900 text-amber-400 flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-university"></i>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">청주대학교 경영학과</h3>
+                        <p class="text-xs text-amber-600 font-semibold mb-4">4학년 (학사 과정 이수 중)</p>
+
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            경영학 종합 프레임워크 이수를 통해 마케팅, 재무 관리, 조직 전략 및 시장 분석 등 창업에 필요한 다각적 학술 자산을 구축하고 있습니다.
                         </p>
                     </div>
 
-                    <!-- 동인 3: 놀기 -->
-                    <div class="bg-white p-5 rounded-lg border border-slate-200 hover:border-slate-400 transition-colors shadow-sm">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Driver 03</span>
-                            <span class="text-xs font-bold text-indigo-800 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded">인텔리전스 환기</span>
-                        </div>
-                        <h3 class="text-base font-bold text-slate-900 mb-1">놀기 (Network & Refresh)</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            다양한 경험과 네트워크 교류를 통한 창의적 고찰 및 사고의 프레임 확장 과정.
-                        </p>
+                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 flex justify-between">
+                        <span>전공: 경영학</span>
+                        <span>최종 학년</span>
                     </div>
                 </div>
-            </section>
+
+                <!-- CARD 3: 핵심 관심 분야 (Core Focus - 창업) -->
+                <div class="card-item vision wix-card rounded-xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md uppercase tracking-wider">
+                                Focus Domain
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">CORE #03</span>
+                        </div>
+
+                        <div class="w-12 h-12 rounded-lg bg-navy-900 text-white flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">신규 사업 창업</h3>
+                        <p class="text-xs text-slate-500 font-medium mb-4">Entrepreneurship & Innovation</p>
+
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            시장 불확실성을 최소화하는 비즈니스 모델 발굴, 타겟 고객 기회 포착, 초기 실행 리소스 최적화 전략을 모색합니다.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 flex justify-between">
+                        <span>사업 모델 기획</span>
+                        <span>기회 포착</span>
+                    </div>
+                </div>
+
+                <!-- CARD 4: 핵심 동력 1 - 먹기 (Gourmet Intake) -->
+                <div class="card-item driver wix-card rounded-xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-bold rounded-md uppercase tracking-wider border border-emerald-200">
+                                Driver 01
+                            </span>
+                            <i class="fa-solid fa-utensils text-slate-400 text-sm"></i>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">미식 탐구 (먹기)</h3>
+                        <p class="text-xs font-medium text-emerald-600 mb-4">신체 에너지 및 인지 능력 수급</p>
+
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            고품질 영양 섭취를 통해 최고 수준의 신체 컨디션과 업무 수행 리듬을 유지하는 생체 에너지 충전 프로세스입니다.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-400 font-mono">
+                        ENERGY INTAKE MECHANISM
+                    </div>
+                </div>
+
+                <!-- CARD 5: 핵심 동력 2 - 자기 (High-Efficiency Sleep) -->
+                <div class="card-item driver wix-card rounded-xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded-md uppercase tracking-wider border border-blue-200">
+                                Driver 02
+                            </span>
+                            <i class="fa-solid fa-moon text-slate-400 text-sm"></i>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">고효율 휴식 (자기)</h3>
+                        <p class="text-xs font-medium text-blue-600 mb-4">뇌 인지 기능 리커버리</p>
+
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            충분한 수면과 휴식을 통해 피로도를 체계적으로 관리하며, 복잡한 의사결정을 위한 명확한 인지력을 회복합니다.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-400 font-mono">
+                        RECOVERY & OPTIMIZATION
+                    </div>
+                </div>
+
+                <!-- CARD 6: 핵심 동력 3 - 놀기 (Recreation & Leisure) -->
+                <div id="drivers" class="card-item driver wix-card rounded-xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-md uppercase tracking-wider border border-indigo-200">
+                                Driver 03
+                            </span>
+                            <i class="fa-solid fa-gamepad text-slate-400 text-sm"></i>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">레저 & 리프레시 (놀기)</h3>
+                        <p class="text-xs font-medium text-indigo-600 mb-4">창의적 사고 환기 및 네트워크</p>
+
+                        <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                            다양한 문화 및 레저 경험을 통해 고정관념을 깨고, 광범위한 트렌드 감지 능력을 유지하며 아이디어를 구상합니다.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 text-xs text-slate-400 font-mono">
+                        CREATIVE REFRESH & NETWORK
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     </main>
 
-    <!-- 3. 푸터 영역 (Footer) -->
-    <footer class="bg-slate-950 text-slate-500 py-8 px-4 text-center text-xs border-t border-slate-900">
-        <div class="max-w-4xl mx-auto space-y-2">
-            <p class="font-semibold text-slate-400">© 2026 이윤호. All rights reserved.</p>
-            <p class="text-slate-600">청주대학교 경영학과 4학년 | 단일 페이지 정밀 포트폴리오</p>
+    <!-- Toast Notification Box (Replaces Browser Alert) -->
+    <div id="toast" class="fixed bottom-8 right-8 z-50 bg-navy-900 text-white px-5 py-3 rounded-lg shadow-xl text-xs font-medium border border-white/20 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toast-message">메시지 내용</span>
+    </div>
+
+    <!-- 3. Minimalist Footer -->
+    <footer class="bg-navy-900 text-slate-400 py-12 px-6 border-t border-white/10 text-xs">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="text-center sm:text-left space-y-1">
+                <p class="font-bold text-slate-200 text-sm">이윤호 | PORTFOLIO</p>
+                <p class="text-slate-400">청주대학교 경영학과 4학년 · 예비 창업가</p>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#about" class="hover:text-white transition-colors">상단으로 이동</a>
+                <span class="text-slate-600">•</span>
+                <button onclick="copyContactInfo()" class="hover:text-white transition-colors">연락처 복사</button>
+            </div>
+
+            <p class="text-slate-500">© 2026 LEE YUN HO. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
+    <script>
+        // Copy Contact Information with Toast UI
+        function copyContactInfo() {
+            const contactText = "이윤호 | 청주대학교 경영학과 4학년 | 예비 창업가 (Contact: lee.yoonho@example.com)";
+            
+            // Clipboard fallback logic using execCommand
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = contactText;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("프로필 연락처 정보가 클립보드에 복사되었습니다.");
+            } catch (err) {
+                showToast("복사 중 오류가 발생했습니다.");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Custom Toast Display Function
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const toastMsg = document.getElementById("toast-message");
+            toastMsg.innerText = message;
+            
+            toast.classList.remove("translate-y-20", "opacity-0");
+            toast.classList.add("translate-y-0", "opacity-100");
+
+            setTimeout(() => {
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-20", "opacity-0");
+            }, 3000);
+        }
+
+        // Filter Cards Logic for Wix-style interactivity
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.card-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Button state styling
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white');
+                btn.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`btn-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+                activeBtn.classList.add('bg-navy-900', 'text-white');
+            }
+
+            // Card show/hide logic
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    if (card.classList.contains(category)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
